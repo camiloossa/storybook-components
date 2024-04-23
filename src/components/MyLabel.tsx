@@ -17,7 +17,7 @@ interface Props {
   allCaps?: boolean;
 
   /**
-   * Colores del fondo
+   * Colores del texto
    */
   color?: 'text-primary' | 'text-secondary' | 'text-tertiary';
 
@@ -25,10 +25,14 @@ interface Props {
    * Color del texto del span
    */
   fontColor?: string;
+  /**
+   * Color de fondo
+   */
+  backgroundColor?: string,
 }
 
-export const MyLabel = ({ label, fontColor, allCaps = false, color='text-primary', size = 'normal' }: Props) => {
+export const MyLabel = ({ label, fontColor, allCaps = false, color='text-primary', size = 'normal', backgroundColor = 'transparent' }: Props) => {
   return (
-    <span className={`${ size } ${ color }`} style={{ color: fontColor }}>{ (allCaps) ? label.toUpperCase() : label }</span>
+    <span className={`${ size } ${ color }`} style={{ color: fontColor, backgroundColor }}>{ (allCaps) ? label.toUpperCase() : label }</span>
   )
 }
